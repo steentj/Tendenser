@@ -11,7 +11,7 @@ import SwiftUI
 struct TendenserApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(tendenser: Tendenser())
         }
     }
 }

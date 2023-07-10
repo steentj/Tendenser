@@ -11,6 +11,11 @@
 		B2C102D72A56C51C004E04DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102D62A56C51C004E04DD /* ContentView.swift */; };
 		B2C102D92A56C51D004E04DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C102D82A56C51D004E04DD /* Assets.xcassets */; };
 		B2C102DC2A56C51D004E04DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C102DB2A56C51D004E04DD /* Preview Assets.xcassets */; };
+		B2C102E32A584AF6004E04DD /* Tendens.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102E22A584AF6004E04DD /* Tendens.swift */; };
+		B2C102E62A584BAD004E04DD /* Måling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102E52A584BAD004E04DD /* Måling.swift */; };
+		B2C102E92A587177004E04DD /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102E82A587177004E04DD /* ColorExtension.swift */; };
+		B2FC09712A5C2F2E004DD590 /* Tendenser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC09702A5C2F2E004DD590 /* Tendenser.swift */; };
+		B2FC09732A5C302F004DD590 /* TendensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC09722A5C302F004DD590 /* TendensView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		B2C102D62A56C51C004E04DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B2C102D82A56C51D004E04DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2C102DB2A56C51D004E04DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B2C102E22A584AF6004E04DD /* Tendens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tendens.swift; sourceTree = "<group>"; };
+		B2C102E52A584BAD004E04DD /* Måling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Måling.swift"; sourceTree = "<group>"; };
+		B2C102E82A587177004E04DD /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		B2FC09702A5C2F2E004DD590 /* Tendenser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tendenser.swift; sourceTree = "<group>"; };
+		B2FC09722A5C302F004DD590 /* TendensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendensView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +61,11 @@
 		B2C102D32A56C51C004E04DD /* Tendenser */ = {
 			isa = PBXGroup;
 			children = (
+				B2C102E72A58715B004E04DD /* Extensions */,
+				B2C102E42A584B01004E04DD /* Model */,
 				B2C102D42A56C51C004E04DD /* TendenserApp.swift */,
 				B2C102D62A56C51C004E04DD /* ContentView.swift */,
+				B2FC09722A5C302F004DD590 /* TendensView.swift */,
 				B2C102D82A56C51D004E04DD /* Assets.xcassets */,
 				B2C102DA2A56C51D004E04DD /* Preview Content */,
 			);
@@ -65,6 +78,24 @@
 				B2C102DB2A56C51D004E04DD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B2C102E42A584B01004E04DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B2C102E22A584AF6004E04DD /* Tendens.swift */,
+				B2C102E52A584BAD004E04DD /* Måling.swift */,
+				B2FC09702A5C2F2E004DD590 /* Tendenser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B2C102E72A58715B004E04DD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B2C102E82A587177004E04DD /* ColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +168,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2FC09732A5C302F004DD590 /* TendensView.swift in Sources */,
 				B2C102D72A56C51C004E04DD /* ContentView.swift in Sources */,
+				B2C102E32A584AF6004E04DD /* Tendens.swift in Sources */,
+				B2C102E92A587177004E04DD /* ColorExtension.swift in Sources */,
+				B2C102E62A584BAD004E04DD /* Måling.swift in Sources */,
+				B2FC09712A5C2F2E004DD590 /* Tendenser.swift in Sources */,
 				B2C102D52A56C51C004E04DD /* TendenserApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
