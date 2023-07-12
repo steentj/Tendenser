@@ -11,9 +11,6 @@ struct ContentView: View {
     @ObservedObject var tendenser: Tendenser
 
     var body: some View {
-      VStack(alignment: .leading){
-        HovedTitel()
-        
         NavigationView{
             List {
               let målingIndices = tendenser.målinger.indices
@@ -30,21 +27,30 @@ struct ContentView: View {
                 NavigationLink(
                   destination: TendensView(tendens: theTendensBinding),
                   label: {Text(måling.navn)})
-//                    .background(Color(rgb: 0xabd1c6))
+//                .background(Color(rgb: 0xabd1c6))
                 .foregroundColor(Color(rgb: 0x0f3433))
-                .listRowSeparator(Visibility.hidden)
-//                      .listRowBackground(Color(rgb: 0xabd1c6))
-                .font(.body)
+//                .listRowBackground(Color(rgb: 0xabd1c6))
+                .listRowSeparator(Visibility.automatic)
+//                .font(.body)
+              }).onDelete(perform: { indexSet in
+                tendenser.målinger.remove(atOffsets: indexSet)
+              })
+              .onMove(perform: { indices, newOffset in
+                tendenser.målinger.move(fromOffsets: indices, toOffset: newOffset)
               })
             }
             .listStyle(InsetListStyle())
+            .toolbar {
+              ToolbarItem(placement: .navigationBarLeading) {
+                EditButton()
+              }
+            }
+            .toolbarBackground(Color(rgb: 0x004643), for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .navigationTitle(Text("Tendenser"))
+            .foregroundColor(Color(rgb: 0xfffffe))
         }
-        
-      }
-      .padding([.top, .leading, .trailing])
-      
-//        .background(Color(rgb: 0xabd1c6))
-  }
+    }
 }
 
 struct HovedTitel: View {

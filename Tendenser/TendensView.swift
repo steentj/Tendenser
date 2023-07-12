@@ -9,27 +9,51 @@ import SwiftUI
 
 struct TendensView: View {
   @Binding var tendens: Tendens
-    var body: some View {
-      VStack {
-        Text("Tendens for målinger af \(tendens.navn)")
-          .padding(.all, 11.0)
-          .cornerRadius(10)
-          .background(Color(rgb: 0xabd1c6))
+  var body: some View {
+    NavigationView {
+//      VStack {
+//        Text("Tendens for målinger af \(tendens.navn)")
+//          .padding(.all, 11.0)
+//          .cornerRadius(10)
+//          .background(Color(rgb: 0xabd1c6))
         List {
-          ForEach(tendens.målinger, content: {
-            måling in
+          let målingIndices = tendens.målinger.indices
+          let målinger = tendens.målinger
+          let målingIndexPairs = Array(zip(målinger, målingIndices))
+          
+          ForEach(målingIndexPairs, id: \.0.id, content: {
+            måling, målingIndex in
+            
+            let tendenserWrapper = $tendens
+            
             HStack {
               Text("\(måling.tid.formatted(date: .abbreviated, time: .omitted)):")
               Spacer()
-              Text("\(måling.værdi.formatted(.number)) i \(tendens.måleenhed)")
+              Text("\(måling.værdi.formatted(.number)) \(tendens.måleenhed)")
             }
             .foregroundColor(Color(rgb: 0x0f3433))
+          }).onDelete(perform: { indexSet in
+            tendens.målinger.remove(atOffsets: indexSet)
           })
         }
-        .padding(/*@START_MENU_TOKEN@*/.all, 0.0/*@END_MENU_TOKEN@*/)
+        .listStyle(InsetListStyle())
+        .toolbar {
+          ToolbarItem(placement: .navigationBarLeading) {
+            EditButton()
+          }
+        }
+        .toolbarBackground(Color(rgb: 0x004643), for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .foregroundColor(Color(rgb: 0xfffffe))
       }
       .padding(.all, 0.0)
-    }
+//    }
+    .toolbarBackground(Color(rgb: 0x004643), for: .navigationBar)
+    .toolbarBackground(.visible, for: .navigationBar)
+    .navigationTitle(
+      Text(tendens.navn).font(.body))
+    .foregroundColor(Color(rgb: 0xfffffe))
+  }
 }
 
 struct TendensView_Previews: PreviewProvider {
