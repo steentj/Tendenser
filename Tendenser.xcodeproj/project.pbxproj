@@ -7,31 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B27F84F92A8A817D00632C1E /* TendensEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F84F82A8A817D00632C1E /* TendensEditor.swift */; };
+		B2A5DC4D2A62B6CA004BE1D8 /* Tendenser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A5DC4C2A62B6CA004BE1D8 /* Tendenser.swift */; };
+		B2A5DC562A6EAF82004BE1D8 /* TendenserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A5DC552A6EAF82004BE1D8 /* TendenserTests.swift */; };
 		B2C102D52A56C51C004E04DD /* TendenserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102D42A56C51C004E04DD /* TendenserApp.swift */; };
-		B2C102D72A56C51C004E04DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102D62A56C51C004E04DD /* ContentView.swift */; };
+		B2C102D72A56C51C004E04DD /* TendenslisteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102D62A56C51C004E04DD /* TendenslisteView.swift */; };
 		B2C102D92A56C51D004E04DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C102D82A56C51D004E04DD /* Assets.xcassets */; };
 		B2C102DC2A56C51D004E04DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C102DB2A56C51D004E04DD /* Preview Assets.xcassets */; };
 		B2C102E32A584AF6004E04DD /* Tendens.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102E22A584AF6004E04DD /* Tendens.swift */; };
 		B2C102E62A584BAD004E04DD /* Måling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102E52A584BAD004E04DD /* Måling.swift */; };
 		B2C102E92A587177004E04DD /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102E82A587177004E04DD /* ColorExtension.swift */; };
-		B2FC09712A5C2F2E004DD590 /* Tendenser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC09702A5C2F2E004DD590 /* Tendenser.swift */; };
+		B2FC09712A5C2F2E004DD590 /* TendenserTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC09702A5C2F2E004DD590 /* TendenserTestData.swift */; };
 		B2FC09732A5C302F004DD590 /* TendensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC09722A5C302F004DD590 /* TendensView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B2A5DC572A6EAF82004BE1D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2C102C92A56C51B004E04DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2C102D02A56C51B004E04DD;
+			remoteInfo = Tendenser;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		B27F84F82A8A817D00632C1E /* TendensEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendensEditor.swift; sourceTree = "<group>"; };
+		B2A5DC4C2A62B6CA004BE1D8 /* Tendenser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tendenser.swift; sourceTree = "<group>"; };
+		B2A5DC532A6EAF82004BE1D8 /* TendenserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TendenserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2A5DC552A6EAF82004BE1D8 /* TendenserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendenserTests.swift; sourceTree = "<group>"; };
 		B2C102D12A56C51C004E04DD /* Tendenser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tendenser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C102D42A56C51C004E04DD /* TendenserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendenserApp.swift; sourceTree = "<group>"; };
-		B2C102D62A56C51C004E04DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B2C102D62A56C51C004E04DD /* TendenslisteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendenslisteView.swift; sourceTree = "<group>"; };
 		B2C102D82A56C51D004E04DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2C102DB2A56C51D004E04DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B2C102E22A584AF6004E04DD /* Tendens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tendens.swift; sourceTree = "<group>"; };
 		B2C102E52A584BAD004E04DD /* Måling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Måling.swift"; sourceTree = "<group>"; };
 		B2C102E82A587177004E04DD /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		B2FC09702A5C2F2E004DD590 /* Tendenser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tendenser.swift; sourceTree = "<group>"; };
+		B2FC09702A5C2F2E004DD590 /* TendenserTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendenserTestData.swift; sourceTree = "<group>"; };
 		B2FC09722A5C302F004DD590 /* TendensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendensView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B2A5DC502A6EAF82004BE1D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2C102CE2A56C51B004E04DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,10 +66,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B2A5DC4B2A62B5A4004BE1D8 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				B2FC09702A5C2F2E004DD590 /* TendenserTestData.swift */,
+			);
+			path = TestData;
+			sourceTree = "<group>";
+		};
+		B2A5DC542A6EAF82004BE1D8 /* TendenserTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2A5DC552A6EAF82004BE1D8 /* TendenserTests.swift */,
+			);
+			path = TendenserTests;
+			sourceTree = "<group>";
+		};
 		B2C102C82A56C51B004E04DD = {
 			isa = PBXGroup;
 			children = (
 				B2C102D32A56C51C004E04DD /* Tendenser */,
+				B2A5DC542A6EAF82004BE1D8 /* TendenserTests */,
 				B2C102D22A56C51C004E04DD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				B2C102D12A56C51C004E04DD /* Tendenser.app */,
+				B2A5DC532A6EAF82004BE1D8 /* TendenserTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,10 +103,12 @@
 		B2C102D32A56C51C004E04DD /* Tendenser */ = {
 			isa = PBXGroup;
 			children = (
+				B2A5DC4B2A62B5A4004BE1D8 /* TestData */,
 				B2C102E72A58715B004E04DD /* Extensions */,
 				B2C102E42A584B01004E04DD /* Model */,
 				B2C102D42A56C51C004E04DD /* TendenserApp.swift */,
-				B2C102D62A56C51C004E04DD /* ContentView.swift */,
+				B2C102D62A56C51C004E04DD /* TendenslisteView.swift */,
+				B27F84F82A8A817D00632C1E /* TendensEditor.swift */,
 				B2FC09722A5C302F004DD590 /* TendensView.swift */,
 				B2C102D82A56C51D004E04DD /* Assets.xcassets */,
 				B2C102DA2A56C51D004E04DD /* Preview Content */,
@@ -85,7 +129,7 @@
 			children = (
 				B2C102E22A584AF6004E04DD /* Tendens.swift */,
 				B2C102E52A584BAD004E04DD /* Måling.swift */,
-				B2FC09702A5C2F2E004DD590 /* Tendenser.swift */,
+				B2A5DC4C2A62B6CA004BE1D8 /* Tendenser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,6 +145,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B2A5DC522A6EAF82004BE1D8 /* TendenserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2A5DC592A6EAF82004BE1D8 /* Build configuration list for PBXNativeTarget "TendenserTests" */;
+			buildPhases = (
+				B2A5DC4F2A6EAF82004BE1D8 /* Sources */,
+				B2A5DC502A6EAF82004BE1D8 /* Frameworks */,
+				B2A5DC512A6EAF82004BE1D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2A5DC582A6EAF82004BE1D8 /* PBXTargetDependency */,
+			);
+			name = TendenserTests;
+			productName = TendenserTests;
+			productReference = B2A5DC532A6EAF82004BE1D8 /* TendenserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B2C102D02A56C51B004E04DD /* Tendenser */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2C102DF2A56C51D004E04DD /* Build configuration list for PBXNativeTarget "Tendenser" */;
@@ -128,6 +190,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					B2A5DC522A6EAF82004BE1D8 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = B2C102D02A56C51B004E04DD;
+					};
 					B2C102D02A56C51B004E04DD = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -147,11 +213,19 @@
 			projectRoot = "";
 			targets = (
 				B2C102D02A56C51B004E04DD /* Tendenser */,
+				B2A5DC522A6EAF82004BE1D8 /* TendenserTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B2A5DC512A6EAF82004BE1D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2C102CF2A56C51B004E04DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,23 +238,77 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B2A5DC4F2A6EAF82004BE1D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2A5DC562A6EAF82004BE1D8 /* TendenserTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2C102CD2A56C51B004E04DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B2FC09732A5C302F004DD590 /* TendensView.swift in Sources */,
-				B2C102D72A56C51C004E04DD /* ContentView.swift in Sources */,
+				B2C102D72A56C51C004E04DD /* TendenslisteView.swift in Sources */,
+				B2A5DC4D2A62B6CA004BE1D8 /* Tendenser.swift in Sources */,
 				B2C102E32A584AF6004E04DD /* Tendens.swift in Sources */,
 				B2C102E92A587177004E04DD /* ColorExtension.swift in Sources */,
 				B2C102E62A584BAD004E04DD /* Måling.swift in Sources */,
-				B2FC09712A5C2F2E004DD590 /* Tendenser.swift in Sources */,
+				B2FC09712A5C2F2E004DD590 /* TendenserTestData.swift in Sources */,
+				B27F84F92A8A817D00632C1E /* TendensEditor.swift in Sources */,
 				B2C102D52A56C51C004E04DD /* TendenserApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B2A5DC582A6EAF82004BE1D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2C102D02A56C51B004E04DD /* Tendenser */;
+			targetProxy = B2A5DC572A6EAF82004BE1D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		B2A5DC5A2A6EAF82004BE1D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2PU7D9EL9L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.thraneit.TendenserTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tendenser.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tendenser";
+			};
+			name = Debug;
+		};
+		B2A5DC5B2A6EAF82004BE1D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2PU7D9EL9L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.thraneit.TendenserTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tendenser.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tendenser";
+			};
+			name = Release;
+		};
 		B2C102DD2A56C51D004E04DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -356,6 +484,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B2A5DC592A6EAF82004BE1D8 /* Build configuration list for PBXNativeTarget "TendenserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2A5DC5A2A6EAF82004BE1D8 /* Debug */,
+				B2A5DC5B2A6EAF82004BE1D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B2C102CC2A56C51B004E04DD /* Build configuration list for PBXProject "Tendenser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

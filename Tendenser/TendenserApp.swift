@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct TendenserApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView(tendenser: Tendenser())
+  @StateObject private var tendenser = Tendenser(sidstOpdateret: Date.now, TendensListe: tendensTestdata)
+  
+  var body: some Scene {
+      WindowGroup {
+        NavigationView{
+          TendenslisteView()
+          Text("Vælg en tendens")
+            .foregroundStyle(.secondary)
         }
-    }
+        .environmentObject(tendenser)
+      }
+  }
 }

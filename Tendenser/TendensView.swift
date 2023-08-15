@@ -9,22 +9,57 @@ import SwiftUI
 
 struct TendensView: View {
   @Binding var tendens: Tendens
+  let isEditing: Bool
+  
   var body: some View {
     NavigationView {
-//      VStack {
-//        Text("Tendens for målinger af \(tendens.navn)")
-//          .padding(.all, 11.0)
-//          .cornerRadius(10)
-//          .background(Color(rgb: 0xabd1c6))
+      VStack {
+        VStack {
+          HStack {
+            Text("Målinger af").font(.title2)
+            if isEditing {
+              TextField("Navn", text: $tendens.navn)
+                .foregroundColor(Color(rgb: 0xfffffe))
+                .autocorrectionDisabled()
+                .textInputAutocapitalization(.never)
+                .textFieldStyle(.roundedBorder)
+                .onSubmit {
+                  //
+                }
+            } else {
+              Text(tendens.navn).font(.title2).fontWeight(.bold)
+            }
+            Spacer()
+          }
+          .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 0))
+          HStack {
+            Text("Måleenhed:").font(.title3)
+            if isEditing {
+              TextField("betegnelse for måleenhed", text: $tendens.måleenhed)
+                .foregroundColor(Color(rgb: 0xfffffe))
+                .autocorrectionDisabled()
+                .textInputAutocapitalization(.never)
+                .textFieldStyle(.roundedBorder)
+                .onSubmit {
+                  //
+                }
+            } else {
+              Text(tendens.måleenhed).font(.title3)
+            }
+            Spacer()
+          }
+          .padding(EdgeInsets(top: 2, leading: 20, bottom: 10, trailing: 10))
+        }
+        .background(Color(rgb: 0x004643))
+        .foregroundColor(Color(rgb: 0xfffffe))
+        
         List {
-          let målingIndices = tendens.målinger.indices
-          let målinger = tendens.målinger
+          let målingIndices = tendens.målinger.sorted(by: {$0.tid < $1.tid}).indices
+          let målinger = tendens.målinger.sorted(by: {$0.tid < $1.tid})
           let målingIndexPairs = Array(zip(målinger, målingIndices))
           
           ForEach(målingIndexPairs, id: \.0.id, content: {
             måling, målingIndex in
-            
-            let tendenserWrapper = $tendens
             
             HStack {
               Text("\(måling.tid.formatted(date: .abbreviated, time: .omitted)):")
@@ -37,34 +72,33 @@ struct TendensView: View {
           })
         }
         .listStyle(InsetListStyle())
-        .toolbar {
-          ToolbarItem(placement: .navigationBarLeading) {
-            EditButton()
-          }
-        }
-        .toolbarBackground(Color(rgb: 0x004643), for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
+//        .toolbar {
+//          ToolbarItem(placement: .navigationBarLeading) {
+//            EditButton()
+//          }
+//          ToolbarItem(placement: .navigationBarTrailing) {
+//            Button {
+//              var nyMåling = Måling(tid: Date.now, værdi: 0, note: "")
+//            } label: {
+//              Image(systemName: "plus")
+//            }
+//          }
+//        }
         .foregroundColor(Color(rgb: 0xfffffe))
       }
-      .padding(.all, 0.0)
-//    }
-    .toolbarBackground(Color(rgb: 0x004643), for: .navigationBar)
-    .toolbarBackground(.visible, for: .navigationBar)
-    .navigationTitle(
-      Text(tendens.navn).font(.body))
-    .foregroundColor(Color(rgb: 0xfffffe))
+    }
   }
 }
 
 struct TendensView_Previews: PreviewProvider {
     static var previews: some View {
-      TendensView(tendens: Binding<Tendens>.constant(Tendens(
-        prioritet: 1,
-        navn: "Blodsukker",
-        måleenhed: "mmol",
-        målinger: [
-          Måling(tid: Calendar.current.date(from: DateComponents(year: 2018, month: 1, day: 15))!,   værdi: 42, note: ""),
-          Måling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 6, day: 15))!,   værdi: 45, note: ""),
-          Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   værdi: 51, note: "")])))
+      TendensView(tendens: Binding<Tendens>.constant(
+        Tendens(1,
+                "Blodsukker",
+                "mmol",
+                [Måling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!,   værdi: 42, note: ""),
+                  Måling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   værdi: 45, note: ""),
+                  Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   værdi: 51, note: "")])),
+        isEditing: true)
     }
 }
