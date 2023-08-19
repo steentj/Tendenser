@@ -65,6 +65,11 @@ struct TendenslisteView: View {
             }
           }
         }
+        .sheet(isPresented: $tilføjerNyTendens) {
+          NavigationView {
+            TendensEditor(tendens: $nyTendens, erNy: true)
+          }
+        }
         .toolbarBackground(Color(rgb: 0x004643), for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
         .foregroundColor(Color(rgb: 0xfffffe))
@@ -126,7 +131,7 @@ struct HovedTitel: View {
 
 struct TendenslisteView_Previews: PreviewProvider {
   static var previews: some View {
-    let tendenser = Tendenser(sidstOpdateret: Date.distantPast, TendensListe: tendensTestdata)
+    var tendenser = Tendenser(sidstOpdateret: Date.distantPast, TendensListe: tendensTestdata)
     TendenslisteView().environmentObject(tendenser)
   }
 }

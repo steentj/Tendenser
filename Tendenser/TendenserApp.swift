@@ -22,3 +22,10 @@ struct TendenserApp: App {
       }
   }
 }
+
+struct TendenserApp_Previews: PreviewProvider {
+  static var previews: some View {
+    let tendenser = Tendenser(sidstOpdateret: Date.distantPast, TendensListe: tendensTestdata)
+    TendenslisteView().environmentObject(tendenser)
+  }
+}

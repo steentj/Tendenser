@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B27F84F92A8A817D00632C1E /* TendensEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F84F82A8A817D00632C1E /* TendensEditor.swift */; };
+		B27F84FB2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F84FA2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift */; };
 		B2A5DC4D2A62B6CA004BE1D8 /* Tendenser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A5DC4C2A62B6CA004BE1D8 /* Tendenser.swift */; };
 		B2A5DC562A6EAF82004BE1D8 /* TendenserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A5DC552A6EAF82004BE1D8 /* TendenserTests.swift */; };
 		B2C102D52A56C51C004E04DD /* TendenserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102D42A56C51C004E04DD /* TendenserApp.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		B27F84F82A8A817D00632C1E /* TendensEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendensEditor.swift; sourceTree = "<group>"; };
+		B27F84FA2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RedigerTendensGenerelleVærdier.swift"; sourceTree = "<group>"; };
 		B2A5DC4C2A62B6CA004BE1D8 /* Tendenser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tendenser.swift; sourceTree = "<group>"; };
 		B2A5DC532A6EAF82004BE1D8 /* TendenserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TendenserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A5DC552A6EAF82004BE1D8 /* TendenserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendenserTests.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				B2C102D62A56C51C004E04DD /* TendenslisteView.swift */,
 				B27F84F82A8A817D00632C1E /* TendensEditor.swift */,
 				B2FC09722A5C302F004DD590 /* TendensView.swift */,
+				B27F84FA2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift */,
 				B2C102D82A56C51D004E04DD /* Assets.xcassets */,
 				B2C102DA2A56C51D004E04DD /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 				B2FC09712A5C2F2E004DD590 /* TendenserTestData.swift in Sources */,
 				B27F84F92A8A817D00632C1E /* TendensEditor.swift in Sources */,
 				B2C102D52A56C51C004E04DD /* TendenserApp.swift in Sources */,
+				B27F84FB2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

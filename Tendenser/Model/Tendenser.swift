@@ -8,6 +8,7 @@
 import Foundation
 
 class Tendenser: ObservableObject {
+ 
   internal init(sidstOpdateret: Date = Date.now, TendensListe: [Tendens]) {
     self.sidstOpdateret = sidstOpdateret
     self.TendensListe = TendensListe
@@ -18,5 +19,9 @@ class Tendenser: ObservableObject {
   
   func slet(_ tendens: Tendens) {
     TendensListe.removeAll { $0.id == tendens.id }
+  }
+  
+  func add(_ tendens: Tendens) {
+    TendensListe.append(tendens)
   }
 }
