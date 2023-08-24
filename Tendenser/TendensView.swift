@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TendensView: View {
   @Binding var tendens: Tendens
   let isEditing: Bool
+  @State private var taskVærdi = "0"
   
   var body: some View {
     NavigationView {
@@ -26,7 +28,7 @@ struct TendensView: View {
             }
             .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 0))
             HStack {
-              Text("Målingenhed").font(.title2)
+              Text("Måleenhed").font(.title2)
               Text(tendens.måleenhed).font(.title2).fontWeight(.bold)
               Spacer()
             }
@@ -38,25 +40,45 @@ struct TendensView: View {
         .foregroundColor(Color(rgb: 0xfffffe))
         
         List {
-          let målingIndices = tendens.målinger.sorted(by: {$0.tid < $1.tid}).indices
-          let målinger = tendens.målinger.sorted()
-          let målingIndexPairs = Array(zip(målinger, målingIndices))
           let dateFormatStyle = tendens.inkluderTidspunkt
               ? Date.FormatStyle.TimeStyle.shortened
               : Date.FormatStyle.TimeStyle.omitted
           
-          ForEach(målingIndexPairs, id: \.0.id, content: {
+          let målingIndices = tendens.målinger.indices
+          let målinger = tendens.målinger
+          let målingIndexPairs = Array(zip(målinger, målingIndices)).sorted(by: {$0.self.0.tid < $1.self.0.tid})
+          
+          ForEach(målingIndexPairs,
+                  id: \.0.id, content: {
             måling, målingIndex in
-           
+            
+            let målingWrapper = $tendens.målinger
+            let målingBinding = målingWrapper
+            let theMålingBinding = målingBinding[målingIndex]
+            
             HStack {
-              Text("\(måling.tid.formatted(date: .abbreviated, time: dateFormatStyle)):")
-              Spacer()
-              Text("\(måling.værdi.formatted(.number)) \(tendens.måleenhed)")
+              if isEditing {
+                RedigerMåling(item: theMålingBinding)
+              } else {
+                MålingView(måling: theMålingBinding, måleenhed: tendens.måleenhed, dateFormatStyle: dateFormatStyle)
+              }
             }
             .foregroundColor(Color(rgb: 0x0f3433))
           }).onDelete(perform: { indexSet in
             tendens.målinger.remove(atOffsets: indexSet)
           })
+          
+          if isEditing {
+            Button {
+              tendens.målinger.append(Måling(tid: Date.now, værdi: 0, note: ""))
+            } label: {
+              HStack {
+                Image(systemName: "plus")
+                Text("Tilføj måling")
+              }
+            }
+            .buttonStyle(.borderless)
+          }
         }
         .listStyle(InsetListStyle())
 //        .foregroundColor(Color(rgb: 0xfffffe))
@@ -73,8 +95,8 @@ struct TendensView_Previews: PreviewProvider {
                 "mmol",
                 true,
                 [Måling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!,   værdi: 42, note: ""),
-                  Måling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   værdi: 45, note: ""),
-                  Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   værdi: 51, note: "")])),
-        isEditing: true)
+                  Måling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   værdi: 45, note: " note "),
+                  Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   værdi: 51, note: " ")])),
+        isEditing: false)
     }
 }

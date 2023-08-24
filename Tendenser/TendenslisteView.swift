@@ -131,7 +131,7 @@ struct HovedTitel: View {
 
 struct TendenslisteView_Previews: PreviewProvider {
   static var previews: some View {
-    var tendenser = Tendenser(sidstOpdateret: Date.distantPast, TendensListe: tendensTestdata)
+    let tendenser = Tendenser(sidstOpdateret: Date.distantPast, TendensListe: tendensTestdata)
     TendenslisteView().environmentObject(tendenser)
   }
 }

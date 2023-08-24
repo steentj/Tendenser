@@ -9,9 +9,9 @@ import Foundation
 
 struct Måling: Identifiable, Hashable {
   let id = UUID()
-  let tid: Date
-  let værdi: Double
-  let note: String
+  var tid: Date
+  var værdi: Double
+  var note: String
 }
 
 extension Måling: Comparable, Equatable {
