@@ -15,8 +15,14 @@ var tendensTestdata: [Tendens] = [
     false,
     [
       Måling(tid: Calendar.current.date(from: DateComponents(year: 2018, month: 1, day: 15))!,   værdi: 42, note: ""),
+      Måling(tid: Calendar.current.date(from: DateComponents(year: 2019, month: 1, day: 15))!,   værdi: 42, note: ""),
+      Måling(tid: Calendar.current.date(from: DateComponents(year: 2020, month: 1, day: 15))!,   værdi: 42, note: ""),
+      Måling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 1, day: 15))!,   værdi: 42, note: ""),
       Måling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 6, day: 15))!,   værdi: 45, note: ""),
-      Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   værdi: 51, note: "")]),
+      Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   værdi: 51, note: ""),
+      Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 21))!,   værdi: 52, note: ""),
+      Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 4, day: 28))!,   værdi: 34, note: ""),
+      Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 7, day: 28))!,   værdi: 30, note: "")]),
   Tendens(
     2,
     "Vægt",
@@ -51,5 +57,4 @@ var tendensTestdata: [Tendens] = [
     false,
     [
       Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 7, day: 7, hour: 13, minute: 20, second: 15))!,   værdi: 3, note: ""),
-      Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 7, day: 8, hour: 13, minute: 20, second: 15))!,   værdi: 2, note: ""),
       Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 7, day: 9, hour: 13, minute: 20, second: 15))!,   værdi: 3, note: "")])]

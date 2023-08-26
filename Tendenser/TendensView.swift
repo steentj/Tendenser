@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import Charts
 
 struct TendensView: View {
   @Binding var tendens: Tendens
@@ -82,6 +83,17 @@ struct TendensView: View {
         }
         .listStyle(InsetListStyle())
 //        .foregroundColor(Color(rgb: 0xfffffe))
+        
+        if tendens.målinger.count > 2 {
+          Chart(tendens.målinger) { m in
+            LineMark(x: .value("Dato", m.tid), y: .value("Værdi", m.værdi))
+          }
+          .padding(20)
+        } else {
+          Text("Ved mindst 3 målinger vises her en graf over værdierne.")
+            .padding(20)
+        }
+        
       }
     }
     }
