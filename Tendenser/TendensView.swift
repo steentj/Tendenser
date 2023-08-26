@@ -84,20 +84,39 @@ struct TendensView: View {
         .listStyle(InsetListStyle())
 //        .foregroundColor(Color(rgb: 0xfffffe))
         
-        if tendens.målinger.count > 2 {
-          Chart(tendens.målinger) { m in
-            LineMark(x: .value("Dato", m.tid), y: .value("Værdi", m.værdi))
+        GroupBox {
+          if tendens.målinger.count >= 2 {
+            Chart(tendens.målinger) { m in
+              LineMark(x: .value("Dato", m.tid), y: .value("Værdi", m.værdi))
+                .interpolationMethod(InterpolationMethod.catmullRom)
+                .symbol(.asterisk)
+                .symbolSize(30)
+            }
+          } else {
+            Text("Ved mindst 2 målinger vises her en graf over værdierne.")
+              .padding(20)
           }
-          .padding(20)
-        } else {
-          Text("Ved mindst 3 målinger vises her en graf over værdierne.")
-            .padding(20)
         }
-        
+        .groupBoxStyle(YellowGroupBoxStyle())
+        .padding(20)
       }
     }
     }
   }
+
+struct YellowGroupBoxStyle: GroupBoxStyle {
+  func makeBody(configuration: Configuration) -> some View {
+    configuration.content
+      .padding(.top, 30)
+      .padding(20)
+      .background(Color(hue: 0.10, saturation: 0.10, brightness: 0.98))
+      .cornerRadius(20)
+      .overlay(
+        configuration.label.padding(10),
+        alignment: .topLeading
+      )
+  }
+}
 
 struct TendensView_Previews: PreviewProvider {
     static var previews: some View {
