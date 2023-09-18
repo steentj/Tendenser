@@ -11,22 +11,25 @@ struct RedigerTendensGenerelleVærdier: View {
   @Binding var tendens: Tendens
   
   var body: some View {
-    HStack {
-      LabeledContent {
-        TextField("Krævet", text: $tendens.navn)
-          .autocorrectionDisabled()
-          .textInputAutocapitalization(.never)
-          .textFieldStyle(.roundedBorder)
-          .padding(10)
-          .onSubmit {
-            //
-          }
-      } label: {
-        Text("Navn på måling:").foregroundColor(Color(rgb: 0xfffffe))
+    VStack {
+      HStack {
+        LabeledContent {
+          TextField("Krævet", text: $tendens.navn)
+            .autocorrectionDisabled()
+            .textInputAutocapitalization(.never)
+            .textFieldStyle(.roundedBorder)
+            .padding(10)
+            .onSubmit {
+              //
+            }
+        } label: {
+          Text("Navn på måling:")
+            .frame(width: 140, height: 20, alignment: .leading)
+            .foregroundColor(.black)
+        }
+        Spacer()
       }
-      Spacer()
-    }
-    .foregroundColor(Color(rgb: 0x004643))
+      .foregroundColor(Color(rgb: 0x004643))
     
     HStack {
       LabeledContent {
@@ -39,15 +42,23 @@ struct RedigerTendensGenerelleVærdier: View {
             //
           }
       } label: {
-        Text("Måleenhed:").foregroundColor(Color(rgb: 0xfffffe))
+        Text("Måleenhed:")
+          .frame(width: 140, height: 20, alignment: .leading)
+          .foregroundColor(.black)
       }
       Spacer()
     }
     .foregroundColor(Color(rgb: 0x004643))
  
-    Toggle(isOn: $tendens.inkluderTidspunkt, label: {Text("Inkluder tidspunkt:")})
+    Toggle(isOn: $tendens.inkluderTidspunkt,
+           label: {
+              Text("Inkluder tidspunkt:")
+                .frame(width: 140, height: 20, alignment: .leading)
+                .foregroundColor(.black)
+            })
       .toggleStyle(.switch)
-      .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 10))
+    }
+    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20 ))
   }
 }
 

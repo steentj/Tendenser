@@ -17,28 +17,9 @@ struct TendensView: View {
   var body: some View {
     NavigationView {
       VStack {
-        VStack {
-          if isEditing {
-            RedigerTendensGenerelleVærdier(tendens: $tendens)
-          }
-//          else {
-//            HStack {
-//              Text("Målinger af").font(.title2)
-//              Text(tendens.navn).font(.title2).fontWeight(.bold)
-//              Spacer()
-//            }
-//            .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 0))
-//            HStack {
-//              Text("Måleenhed").font(.title2)
-//              Text(tendens.måleenhed).font(.title2).fontWeight(.bold)
-//              Spacer()
-//            }
-//            .padding(EdgeInsets(top: 0, leading: 5, bottom: 10, trailing: 0))
-//          }
+        if isEditing {
+          RedigerTendensGenerelleVærdier(tendens: $tendens)
         }
-        .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 0))
-//        .background(Color(rgb: 0x004643))
-        .foregroundColor(Color(rgb: 0xfffffe))
         
         let målingIndices = tendens.målinger.indices
         let målinger = tendens.målinger
@@ -85,18 +66,9 @@ struct TendensView: View {
             })
           }
         }
+        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
         
-        if isEditing {
-//          Button {
-//            tendens.målinger.append(Måling(tid: Date.now, værdi: 0, note: ""))
-//          } label: {
-//            HStack {
-//              Image(systemName: "plus")
-//              Text("Tilføj måling")
-//            }
-//          }
-//          .buttonStyle(.borderless)
-        } else {          
+        if !isEditing {          
           GroupBox {
             if tendens.målinger.count >= 2 {
               Chart(tendens.målinger.sorted()) { m in
@@ -141,6 +113,6 @@ struct TendensView_Previews: PreviewProvider {
                 [Måling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!,   værdi: 42, note: ""),
                   Måling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   værdi: 45, note: " note "),
                   Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   værdi: 51, note: " ")])),
-        isEditing: false)
+        isEditing: true)
     }
 }
