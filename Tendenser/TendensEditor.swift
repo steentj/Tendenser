@@ -35,7 +35,6 @@ struct TendensEditor: View {
                 dismiss()
               } else {
                 if isEditing {
-//                  print("Færdig, gemmer ændringer til \(tendens.navn).")
                   withAnimation {
                     tendens = tendensKopi
                   }
@@ -51,6 +50,12 @@ struct TendensEditor: View {
           tendensKopi = tendens
         }
     }
+    .toolbarColorScheme(.dark, for: .navigationBar)
+    .toolbarBackground(LinearGradient(colors: [Color(rgb: 0x004643), Color(rgb: 0x005643)],
+                                      startPoint: .leading, endPoint: .trailing), for: .navigationBar)
+    .toolbarBackground(.visible, for: .automatic)
+    .navigationTitle(tendensKopi.navn)
+    .navigationBarTitleDisplayMode(.inline)
   }
 }
 
@@ -62,7 +67,7 @@ struct TendensEditor_Previews: PreviewProvider {
                 "mmol",
                 false,
                 [Måling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!,   værdi: 42, note: ""),
-                 Måling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   værdi: 45, note: ""),
+                 Måling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   værdi: 45, note: "Dette er en note.\nDen er på 2 linjer."),
                  Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   værdi: 51, note: "")])), erNy: false)
     }
 }

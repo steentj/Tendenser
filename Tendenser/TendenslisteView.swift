@@ -15,7 +15,7 @@ struct TendenslisteView: View {
   @State private var tilføjerNyTendens: Bool = false
   
   var body: some View {
-    NavigationView{
+    NavigationStack{
       List {
         let målingIndices = tendenser.TendensListe.indices
         let målinger = tendenser.TendensListe
@@ -30,8 +30,9 @@ struct TendenslisteView: View {
           let theTendensBinding = tendensBinding[målingIndex]
           
           NavigationLink(
-            destination: TendensEditor(tendens: theTendensBinding, erNy: false),
-            label: {Text(måling.navn)})
+            måling.navn,
+            destination: TendensEditor(tendens: theTendensBinding, erNy: false)
+            )
           .background(Color(rgb: 0xabd1c6))
           .foregroundColor(Color(rgb: 0x0f3433))
           .listRowBackground(Color(rgb: 0xabd1c6))
@@ -48,7 +49,10 @@ struct TendenslisteView: View {
           opdaterProriteter(tendenser: tendenser, indices: indices, newOffset: newOffset, målingIndexPairs: målingIndexPairs)
         })
       }
-      .navigationTitle(Text("Tendenser")).foregroundColor(Color(rgb: 0xfffffe))
+      .scrollContentBackground(.hidden)
+      .background(Color(rgb: 0xabd1c6))
+      .navigationTitle(Text("Tendenser"))
+      .navigationBarTitleDisplayMode(.automatic)
       .listStyle(InsetListStyle())
       .toolbar {
         ToolbarItem (placement: .navigationBarLeading) {
@@ -70,9 +74,11 @@ struct TendenslisteView: View {
             TendensEditor(tendens: $nyTendens, erNy: true)
           }
         }
-        .toolbarBackground(Color(rgb: 0x004643), for: .navigationBar)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+//        .toolbarBackground(LinearGradient(colors: [.red, .blue],
+        .toolbarBackground(LinearGradient(colors: [Color(rgb: 0x004643), Color(rgb: 0x005643)],
+                                          startPoint: .leading, endPoint: .trailing), for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
-        .foregroundColor(Color(rgb: 0xfffffe))
       }
     }
   
@@ -128,6 +134,20 @@ struct HovedTitel: View {
     .cornerRadius(10)
   }
 }
+
+//struct NavigationConfigurator: UIViewControllerRepresentable {
+//  var configure: (UINavigationController) -> Void = { _ in }
+//  
+//  func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
+//    UIViewController()
+//  }
+//  func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
+//    if let nc = uiViewController.navigationController {
+//      self.configure(nc)
+//    }
+//  }
+//  
+//}
 
 struct TendenslisteView_Previews: PreviewProvider {
   static var previews: some View {

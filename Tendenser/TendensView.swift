@@ -21,88 +21,101 @@ struct TendensView: View {
           if isEditing {
             RedigerTendensGenerelleVærdier(tendens: $tendens)
           }
-          else {
-            HStack {
-              Text("Målinger af").font(.title2)
-              Text(tendens.navn).font(.title2).fontWeight(.bold)
-              Spacer()
-            }
-            .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 0))
-            HStack {
-              Text("Måleenhed").font(.title2)
-              Text(tendens.måleenhed).font(.title2).fontWeight(.bold)
-              Spacer()
-            }
-            .padding(EdgeInsets(top: 0, leading: 5, bottom: 10, trailing: 0))
-          }
+//          else {
+//            HStack {
+//              Text("Målinger af").font(.title2)
+//              Text(tendens.navn).font(.title2).fontWeight(.bold)
+//              Spacer()
+//            }
+//            .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 0))
+//            HStack {
+//              Text("Måleenhed").font(.title2)
+//              Text(tendens.måleenhed).font(.title2).fontWeight(.bold)
+//              Spacer()
+//            }
+//            .padding(EdgeInsets(top: 0, leading: 5, bottom: 10, trailing: 0))
+//          }
         }
         .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 0))
-        .background(Color(rgb: 0x004643))
+//        .background(Color(rgb: 0x004643))
         .foregroundColor(Color(rgb: 0xfffffe))
         
-        List {
-          let dateFormatStyle = tendens.inkluderTidspunkt
-              ? Date.FormatStyle.TimeStyle.shortened
-              : Date.FormatStyle.TimeStyle.omitted
-          
-          let målingIndices = tendens.målinger.indices
-          let målinger = tendens.målinger
-          let målingIndexPairs = Array(zip(målinger, målingIndices)).sorted(by: {$0.self.0.tid < $1.self.0.tid})
-          
-          ForEach(målingIndexPairs,
-                  id: \.0.id, content: {
-            måling, målingIndex in
-            
-            let målingWrapper = $tendens.målinger
-            let målingBinding = målingWrapper
-            let theMålingBinding = målingBinding[målingIndex]
-            
-            HStack {
-              if isEditing {
-                RedigerMåling(item: theMålingBinding)
-              } else {
-                MålingView(måling: theMålingBinding, måleenhed: tendens.måleenhed, dateFormatStyle: dateFormatStyle)
-              }
-            }
-            .foregroundColor(Color(rgb: 0x0f3433))
-          }).onDelete(perform: { indexSet in
-            tendens.målinger.remove(atOffsets: indexSet)
-          })
-          
-          if isEditing {
-            Button {
-              tendens.målinger.append(Måling(tid: Date.now, værdi: 0, note: ""))
-            } label: {
-              HStack {
-                Image(systemName: "plus")
-                Text("Tilføj måling")
-              }
-            }
-            .buttonStyle(.borderless)
-          }
-        }
-        .listStyle(InsetListStyle())
-//        .foregroundColor(Color(rgb: 0xfffffe))
+        let målingIndices = tendens.målinger.indices
+        let målinger = tendens.målinger
+        let målingIndexPairs = Array(zip(målinger, målingIndices)).sorted(by: {$0.self.0.tid < $1.self.0.tid})
         
-        GroupBox {
-          if tendens.målinger.count >= 2 {
-            Chart(tendens.målinger) { m in
-              LineMark(x: .value("Dato", m.tid), y: .value("Værdi", m.værdi))
-                .interpolationMethod(InterpolationMethod.catmullRom)
-                .symbol(.asterisk)
-                .symbolSize(30)
+        ScrollView {
+          ScrollViewReader { scrollView in
+            
+            VStack {
+                ForEach(målingIndexPairs,
+                        id: \.0.id) {
+                  måling, målingIndex in
+                  
+                  let målingWrapper = $tendens.målinger
+                  let målingBinding = målingWrapper
+                  let theMålingBinding = målingBinding[målingIndex]
+                  
+                  HStack {
+                    if isEditing {
+                      RedigerMåling(item: theMålingBinding, inkluderTid: tendens.inkluderTidspunkt)
+                    } else {
+                      MålingView(måling: theMålingBinding, måleenhed: tendens.måleenhed, formatStyle: findDatoFormat(inkluderTid: tendens.inkluderTidspunkt))
+                    }
+                  }
+                  .id(målingIndex)
+                  .foregroundColor(Color(rgb: 0x0f3433))
+                }
+                .onDelete(perform: { indexSet in
+                  tendens.målinger.remove(atOffsets: indexSet)
+                })
+              Button {
+                tendens.målinger.append(Måling(tid: Date.now, værdi: 0, note: ""))
+              } label: {
+                HStack {
+                  Image(systemName: "plus")
+                  Text("Tilføj måling")
+                }
+              }
+              .buttonStyle(.borderless)
+              .id(tendens.målinger.count)
             }
-          } else {
-            Text("Ved mindst 2 målinger vises her en graf over værdierne.")
-              .padding(20)
+            .onAppear(perform: {
+              scrollView.scrollTo(tendens.målinger.count, anchor: .bottom)
+            })
           }
         }
-        .groupBoxStyle(YellowGroupBoxStyle())
-        .padding(20)
+        
+        if isEditing {
+//          Button {
+//            tendens.målinger.append(Måling(tid: Date.now, værdi: 0, note: ""))
+//          } label: {
+//            HStack {
+//              Image(systemName: "plus")
+//              Text("Tilføj måling")
+//            }
+//          }
+//          .buttonStyle(.borderless)
+        } else {          
+          GroupBox {
+            if tendens.målinger.count >= 2 {
+              Chart(tendens.målinger.sorted()) { m in
+                LineMark(x: .value("Dato", m.tid), y: .value("Værdi", m.værdi))
+                  .interpolationMethod(InterpolationMethod.catmullRom)
+                  .symbol(.asterisk)
+                  .symbolSize(30)
+              }
+            } else {
+              Text("Ved mindst 2 målinger vises her en graf over værdierne.")
+            }
+          }
+          .groupBoxStyle(YellowGroupBoxStyle())
+          .padding(20)
+        }
       }
     }
-    }
   }
+}
 
 struct YellowGroupBoxStyle: GroupBoxStyle {
   func makeBody(configuration: Configuration) -> some View {
