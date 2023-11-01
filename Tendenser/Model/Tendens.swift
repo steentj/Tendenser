@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Tendens: Identifiable, Hashable {
+//@Model
+class xTendens {
+//class xTendens: Identifiable {
   init() {
     prioritet = 0
     navn = ""
@@ -17,7 +20,7 @@ struct Tendens: Identifiable, Hashable {
     return
   }
   
-  init(_ prio: Int, _ nytNavn: String, _ nytMåleenhed: String, _ inkluderTid: Bool, _ nyeMålinger: [Måling]) {
+  init(_ prio: Int, _ nytNavn: String, _ nytMåleenhed: String, _ inkluderTid: Bool, _ nyeMålinger: [xMåling]) {
     prioritet = prio
     navn = nytNavn
     måleenhed = nytMåleenhed
@@ -26,16 +29,17 @@ struct Tendens: Identifiable, Hashable {
     return
   }
   
-  let id = UUID()
+  @Attribute(.unique) let id = UUID()
   var prioritet: Int
   var navn: String
   var måleenhed: String
   var inkluderTidspunkt: Bool
-  var målinger: [Måling]
+  var målinger: [xMåling]
+//  @Relationship(.cascade) var målinger: [xMåling]? = []
 }
 
-extension Tendens: Comparable, Equatable {
-  static func == (lhs: Tendens, rhs: Tendens) -> Bool {
+extension xTendens: Comparable, Equatable {
+  static func == (lhs: xTendens, rhs: xTendens) -> Bool {
     lhs.id == rhs.id &&
     lhs.navn == rhs.navn &&
     lhs.måleenhed == rhs.måleenhed &&
@@ -44,7 +48,7 @@ extension Tendens: Comparable, Equatable {
     lhs.målinger == rhs.målinger
   }
   
-  static func < (lhs: Tendens, rhs: Tendens) -> Bool {
+  static func < (lhs: xTendens, rhs: xTendens) -> Bool {
     return lhs.prioritet > rhs.prioritet
   }
 }

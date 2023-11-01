@@ -13,14 +13,14 @@ final class TendenserTests: XCTestCase {
   var målingIndices: Range<Int>!
   var målinger: [Tendens]!
   var målingIndexPairs: [(Tendens, Int)]!
-  var sut: TendenserApp!
+  var sut: ContentView!
 
     override func setUpWithError() throws {
       tendenser = Tendenser(TendensListe: tendensTestdata)
       målingIndices = tendenser.TendensListe.indices
       målinger = tendenser.TendensListe
       målingIndexPairs = Array(zip(målinger, målingIndices)).sorted(by: {$0.self.0.prioritet < $1.self.0.prioritet})
-      sut = TendenserApp()
+      sut = ContentView()
     }
 
     override func tearDownWithError() throws {

@@ -6,23 +6,31 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Måling: Identifiable, Hashable {
-  let id = UUID()
+//@Model
+class xMåling: Identifiable {
+  @Attribute(.unique) let id = UUID()
   var tid: Date
   var værdi: Double
   var note: String
+  
+  init(tid: Date, værdi: Double, note: String) {
+    self.tid = tid
+    self.værdi = værdi
+    self.note = note
+  }
 }
 
-extension Måling: Comparable, Equatable {
-  static func == (lhs: Måling, rhs: Måling) -> Bool {
+extension xMåling: Comparable, Equatable {
+  static func == (lhs: xMåling, rhs: xMåling) -> Bool {
     lhs.id == rhs.id &&
     lhs.tid == rhs.tid &&
     lhs.note == rhs.note &&
     lhs.værdi == rhs.værdi
   }
   
-  static func < (lhs: Måling, rhs: Måling) -> Bool {
+  static func < (lhs: xMåling, rhs: xMåling) -> Bool {
     return lhs.tid < rhs.tid
   }
 }

@@ -6,16 +6,18 @@
 //
 
 import Foundation
+import SwiftData
 
-class Tendenser: ObservableObject {
+@Model
+final class Tendenser {
  
   internal init(sidstOpdateret: Date = Date.now, TendensListe: [Tendens]) {
     self.sidstOpdateret = sidstOpdateret
     self.TendensListe = TendensListe
   }
   
-  @Published var sidstOpdateret: Date = Date.now
-  @Published var TendensListe: [Tendens]
+  var sidstOpdateret: Date = Date.now
+  var TendensListe: [Tendens]
   
   func slet(_ tendens: Tendens) {
     TendensListe.removeAll { $0.id == tendens.id }

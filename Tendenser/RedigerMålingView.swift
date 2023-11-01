@@ -31,6 +31,7 @@ struct RedigerMåling: View {
       }
       .sheet(isPresented: $visNote) {
         TextEditor(text: $item.note)
+          .autocorrectionDisabled(true)
       }
       .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
       .foregroundColor(.black)

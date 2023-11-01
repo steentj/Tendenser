@@ -6,26 +6,25 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct TendenserApp: App {
-  @StateObject private var tendenser = Tendenser(sidstOpdateret: Date.now, TendensListe: tendensTestdata)
+  var modelContainer: ModelContainer
   
+  init() {
+    do {
+      self.modelContainer = try ModelContainer(for: Tendens.self, Måling.self, migrationPlan: nil)
+    }
+    catch {
+      fatalError("Kunne ikke initialisere model containeren!")
+    }
+  }
+
   var body: some Scene {
       WindowGroup {
-        NavigationView{
-          TendenslisteView()
-          Text("Vælg en tendens")
-            .foregroundStyle(.secondary)
-        }
-        .environmentObject(tendenser)
+        ContentView()
       }
-  }
-}
-
-struct TendenserApp_Previews: PreviewProvider {
-  static var previews: some View {
-    let tendenser = Tendenser(sidstOpdateret: Date.distantPast, TendensListe: tendensTestdata)
-    TendenslisteView().environmentObject(tendenser)
+      .modelContainer(modelContainer)
   }
 }

@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct MålingView: View {
-  @Binding var måling: Måling
+  @Bindable var måling: Måling
   var måleenhed: String
   var formatStyle: Date.FormatStyle
+  
   @State private var visNote = false
   
   var body: some View {
     HStack {
       Text("\(formatStyle.format(måling.tid)):")
         .frame(width: 160.0, height: nil, alignment: .leading)
-//      Spacer()
       Text("\(måling.værdi.formatted(.number)) \(måleenhed)")
         .frame(width: 150, height: 20, alignment: .trailing)
         .fontWeight(.bold)
@@ -59,11 +59,3 @@ func findDatoFormat(inkluderTid: Bool) -> Date.FormatStyle {
     .day(.twoDigits)
 }
 
-struct MålingView_Previews: PreviewProvider {
-    static var previews: some View {
-      MålingView(måling: Binding<Måling>.constant(
-        Måling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15, hour: 12, minute: 45))!, værdi: 42.3512345678, note: "Note")),
-                 måleenhed: "mmol",
-                 formatStyle: findDatoFormat(inkluderTid: true))
-    }
-}
