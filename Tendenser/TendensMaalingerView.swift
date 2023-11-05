@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 import Charts
 
-struct TendensMålingerView: View {
+struct TendensMaalingerView: View {
   @Bindable var tendens: Tendens
   
   @State private var visChart = false
@@ -21,13 +21,13 @@ struct TendensMålingerView: View {
       ScrollView {
         ScrollViewReader { scrollView in
           VStack {
-            ForEach(tendens.målinger) { måling in
-                MålingView(måling: måling, måleenhed: tendens.måleenhed, formatStyle: findDatoFormat(inkluderTid: tendens.inkluderTidspunkt))
+            ForEach(tendens.maalinger) { måling in
+                MaalingView(måling: måling, maaleenhed: tendens.maaleenhed, formatStyle: findDatoFormat(inkluderTid: tendens.inkluderTidspunkt))
                 .foregroundColor(Color(rgb: 0x0f3433))
             }
                     
             Button {
-              tendens.målinger.append(Måling(tid: Date.now, værdi: 0, note: ""))
+              tendens.maalinger.append(Maaling(tid: Date.now, vaerdi: 0, note: ""))
             } label: {
               HStack {
                 Image(systemName: "plus")
@@ -35,10 +35,10 @@ struct TendensMålingerView: View {
               }
             }
             .buttonStyle(.borderless)
-            .id(tendens.målinger.count)
+            .id(tendens.maalinger.count)
           }
           .onAppear(perform: {
-            scrollView.scrollTo(tendens.målinger.count, anchor: .bottom)
+            scrollView.scrollTo(tendens.maalinger.count, anchor: .bottom)
           })
         }
       }
@@ -51,15 +51,15 @@ struct TendensMålingerView: View {
       }
       .sheet(isPresented: $visChart) {
         GroupBox {
-          if tendens.målinger.count >= 2 {
-            Chart(tendens.målinger.sorted()) { m in
-              LineMark(x: .value("Dato", m.tid), y: .value("Værdi", m.værdi))
+          if tendens.maalinger.count >= 2 {
+            Chart(tendens.maalinger.sorted()) { m in
+              LineMark(x: .value("Dato", m.tid), y: .value("Værdi", m.vaerdi))
                 .interpolationMethod(InterpolationMethod.catmullRom)
                 .symbol(.asterisk)
                 .symbolSize(30)
             }
           } else {
-            Text("Ved mindst 2 målinger vises her en graf over værdierne.")
+            Text("Ved mindst 2 maalinger vises her en graf over vaerdierne.")
           }
         }
         .presentationDragIndicator(.visible)
@@ -70,11 +70,11 @@ struct TendensMålingerView: View {
     }
   }
                       
-//  func sletMålinger(sletMåling: Måling) {
+//  func sletMaalinger(sletMaaling: Maaling) {
 //    var ix = 0
-//    for måling in tendens.målinger {
-//      if måling.id == sletMåling.id {
-//        let tendens = tendens.målinger.remove(at: ix)
+//    for måling in tendens.maalinger {
+//      if måling.id == sletMaaling.id {
+//        let tendens = tendens.maalinger.remove(at: ix)
 //      }
 //      ix += 1
 //    }
@@ -95,16 +95,16 @@ struct YellowGroupBoxStyle: GroupBoxStyle {
   }
 }
 
-//struct TendensMålingerView_Previews: PreviewProvider {
+//struct TendensMaalingerView_Previews: PreviewProvider {
 //    static var previews: some View {
-//      TendensMålingerView(tendens: Binding<Tendens>.constant(
+//      TendensMaalingerView(tendens: Binding<Tendens>.constant(
 //        Tendens(1,
 //                "Blodsukker",
 //                "mmol",
 //                true,
-//                [Måling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!,   værdi: 42, note: ""),
-//                  Måling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   værdi: 45, note: " note "),
-//                  Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   værdi: 51, note: " ")])),
+//                [Maaling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!,   vaerdi: 42, note: ""),
+//                  Maaling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   vaerdi: 45, note: " note "),
+//                  Maaling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   vaerdi: 51, note: " ")])),
 //        isEditing: true)
 //    }
 //}

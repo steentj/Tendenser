@@ -1,5 +1,5 @@
 //
-//  RedigerMålingView.swift
+//  RedigerMaalingView.swift
 //  Tendenser
 //
 //  Created by Steen Thrane Jacobsen on 22/08/2023.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct RedigerMåling: View {
-  @Binding var item: Måling
+struct RedigerMaaling: View {
+  @Binding var item: Maaling
   @State var visNote = false
   var inkluderTid: Bool
   
@@ -22,7 +22,7 @@ struct RedigerMåling: View {
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
       }
       
-      TextField("Målt værdi", value: $item.værdi, formatter: lavNumberFormatter())
+      TextField("Målt vaerdi", value: $item.vaerdi, formatter: lavNumberFormatter())
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         .frame(width: 100)
         .textFieldStyle(.roundedBorder)
@@ -50,9 +50,9 @@ func lavNumberFormatter() -> NumberFormatter {
 }
 
 
-struct RedigerMåling_Previews: PreviewProvider {
+struct RedigerMaaling_Previews: PreviewProvider {
     static var previews: some View {
-      RedigerMåling(item: Binding<Måling>.constant(
-        Måling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!, værdi: 42.3512345678, note: "")), inkluderTid: true)
+      RedigerMaaling(item: Binding<Maaling>.constant(
+        Maaling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!, vaerdi: 42.3512345678, note: "")), inkluderTid: true)
     }
 }

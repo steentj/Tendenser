@@ -33,7 +33,7 @@ struct RedigerTendensGenerelleVærdier: View {
     
     HStack {
       LabeledContent {
-        TextField("Krævet", text: $tendens.måleenhed)
+        TextField("Krævet", text: $tendens.maaleenhed)
           .autocorrectionDisabled()
           .textInputAutocapitalization(.never)
           .textFieldStyle(.roundedBorder)
@@ -69,8 +69,8 @@ struct RedigerTendensGenerelleVærdier_Previews: PreviewProvider {
                 "Blodsukker",
                 "mmol",
                 true,
-                [Måling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!,   værdi: 42, note: ""),
-                 Måling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   værdi: 45, note: ""),
-                 Måling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   værdi: 51, note: "")])))
+                [Maaling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!,   vaerdi: 42, note: ""),
+                 Maaling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   vaerdi: 45, note: ""),
+                 Maaling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   vaerdi: 51, note: "")])))
     }
 }

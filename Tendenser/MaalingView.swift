@@ -1,5 +1,5 @@
 //
-//  MålingView.swift
+//  MaalingView.swift
 //  Tendenser
 //
 //  Created by Steen Thrane Jacobsen on 24/08/2023.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct MålingView: View {
-  @Bindable var måling: Måling
-  var måleenhed: String
+struct MaalingView: View {
+  @Bindable var måling: Maaling
+  var maaleenhed: String
   var formatStyle: Date.FormatStyle
   
   @State private var visNote = false
@@ -18,7 +18,7 @@ struct MålingView: View {
     HStack {
       Text("\(formatStyle.format(måling.tid)):")
         .frame(width: 160.0, height: nil, alignment: .leading)
-      Text("\(måling.værdi.formatted(.number)) \(måleenhed)")
+      Text("\(måling.vaerdi.formatted(.number)) \(maaleenhed)")
         .frame(width: 150, height: 20, alignment: .trailing)
         .fontWeight(.bold)
       if måling.note.trimmingCharacters(in: .whitespaces).count > 0 {

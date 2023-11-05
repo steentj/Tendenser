@@ -9,4 +9,4 @@ import SwiftUI
 import SwiftData
 
 typealias Tendens = ModelSchemaV1.Tendens
-typealias Måling = ModelSchemaV1.Måling
+typealias Maaling = ModelSchemaV1.Maaling

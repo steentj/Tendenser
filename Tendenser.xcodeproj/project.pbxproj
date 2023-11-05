@@ -10,8 +10,8 @@
 		B27D8C442ABD970B0048BEF1 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8C432ABD970B0048BEF1 /* PreviewContainer.swift */; };
 		B27F84F92A8A817D00632C1E /* TendensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F84F82A8A817D00632C1E /* TendensView.swift */; };
 		B27F84FB2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F84FA2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift */; };
-		B27F84FD2A94EEAD00632C1E /* RedigerMålingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F84FC2A94EEAD00632C1E /* RedigerMålingView.swift */; };
-		B282B3EB2A9775F500C8781B /* MålingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282B3EA2A9775F500C8781B /* MålingView.swift */; };
+		B27F84FD2A94EEAD00632C1E /* RedigerMaalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F84FC2A94EEAD00632C1E /* RedigerMaalingView.swift */; };
+		B282B3EB2A9775F500C8781B /* MaalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282B3EA2A9775F500C8781B /* MaalingView.swift */; };
 		B29D33792AE1421B00E427AD /* ModelSchemaV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D33782AE1421B00E427AD /* ModelSchemaV1.swift */; };
 		B29D337B2AE145B500E427AD /* ModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D337A2AE145B500E427AD /* ModelExtensions.swift */; };
 		B29D337D2AE1465F00E427AD /* SwiftData+TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D337C2AE1465F00E427AD /* SwiftData+TypeAlias.swift */; };
@@ -22,7 +22,7 @@
 		B2C102DC2A56C51D004E04DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C102DB2A56C51D004E04DD /* Preview Assets.xcassets */; };
 		B2C102E92A587177004E04DD /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C102E82A587177004E04DD /* ColorExtension.swift */; };
 		B2FC09712A5C2F2E004DD590 /* TendenserTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC09702A5C2F2E004DD590 /* TendenserTestData.swift */; };
-		B2FC09732A5C302F004DD590 /* TendensMålingerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC09722A5C302F004DD590 /* TendensMålingerView.swift */; };
+		B2FC09732A5C302F004DD590 /* TendensMaalingerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC09722A5C302F004DD590 /* TendensMaalingerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,8 @@
 		B27D8C432ABD970B0048BEF1 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		B27F84F82A8A817D00632C1E /* TendensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendensView.swift; sourceTree = "<group>"; };
 		B27F84FA2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RedigerTendensGenerelleVærdier.swift"; sourceTree = "<group>"; };
-		B27F84FC2A94EEAD00632C1E /* RedigerMålingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RedigerMålingView.swift"; sourceTree = "<group>"; };
-		B282B3EA2A9775F500C8781B /* MålingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MålingView.swift"; sourceTree = "<group>"; };
+		B27F84FC2A94EEAD00632C1E /* RedigerMaalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedigerMaalingView.swift; sourceTree = "<group>"; };
+		B282B3EA2A9775F500C8781B /* MaalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaalingView.swift; sourceTree = "<group>"; };
 		B29D33782AE1421B00E427AD /* ModelSchemaV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSchemaV1.swift; sourceTree = "<group>"; };
 		B29D337A2AE145B500E427AD /* ModelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExtensions.swift; sourceTree = "<group>"; };
 		B29D337C2AE1465F00E427AD /* SwiftData+TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftData+TypeAlias.swift"; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		B2C102DB2A56C51D004E04DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B2C102E82A587177004E04DD /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		B2FC09702A5C2F2E004DD590 /* TendenserTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendenserTestData.swift; sourceTree = "<group>"; };
-		B2FC09722A5C302F004DD590 /* TendensMålingerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TendensMålingerView.swift"; sourceTree = "<group>"; };
+		B2FC09722A5C302F004DD590 /* TendensMaalingerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendensMaalingerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,10 +134,10 @@
 				B2C102D42A56C51C004E04DD /* TendenserApp.swift */,
 				B2C102D62A56C51C004E04DD /* ContentView.swift */,
 				B27F84F82A8A817D00632C1E /* TendensView.swift */,
-				B2FC09722A5C302F004DD590 /* TendensMålingerView.swift */,
+				B2FC09722A5C302F004DD590 /* TendensMaalingerView.swift */,
 				B27F84FA2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift */,
-				B282B3EA2A9775F500C8781B /* MålingView.swift */,
-				B27F84FC2A94EEAD00632C1E /* RedigerMålingView.swift */,
+				B282B3EA2A9775F500C8781B /* MaalingView.swift */,
+				B27F84FC2A94EEAD00632C1E /* RedigerMaalingView.swift */,
 				B2C102D82A56C51D004E04DD /* Assets.xcassets */,
 				B27D8C422ABD96BD0048BEF1 /* Utilis */,
 				B2C102DA2A56C51D004E04DD /* Preview Content */,
@@ -219,7 +219,7 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					B2A5DC522A6EAF82004BE1D8 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -283,16 +283,16 @@
 			files = (
 				B29D337B2AE145B500E427AD /* ModelExtensions.swift in Sources */,
 				B29D337D2AE1465F00E427AD /* SwiftData+TypeAlias.swift in Sources */,
-				B2FC09732A5C302F004DD590 /* TendensMålingerView.swift in Sources */,
+				B2FC09732A5C302F004DD590 /* TendensMaalingerView.swift in Sources */,
 				B2C102D72A56C51C004E04DD /* ContentView.swift in Sources */,
 				B2C102E92A587177004E04DD /* ColorExtension.swift in Sources */,
 				B27D8C442ABD970B0048BEF1 /* PreviewContainer.swift in Sources */,
-				B282B3EB2A9775F500C8781B /* MålingView.swift in Sources */,
+				B282B3EB2A9775F500C8781B /* MaalingView.swift in Sources */,
 				B2FC09712A5C2F2E004DD590 /* TendenserTestData.swift in Sources */,
 				B27F84F92A8A817D00632C1E /* TendensView.swift in Sources */,
 				B29D33792AE1421B00E427AD /* ModelSchemaV1.swift in Sources */,
 				B2C102D52A56C51C004E04DD /* TendenserApp.swift in Sources */,
-				B27F84FD2A94EEAD00632C1E /* RedigerMålingView.swift in Sources */,
+				B27F84FD2A94EEAD00632C1E /* RedigerMaalingView.swift in Sources */,
 				B27F84FB2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +382,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -442,6 +443,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

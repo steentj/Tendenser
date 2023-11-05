@@ -19,7 +19,6 @@ struct ContentView: View {
     NavigationStack(path: $sti) {
       List {
         ForEach(tendenser) { tendens in
-//          @Binding var tendens = tendens
           NavigationLink(value: tendens) {
             Text(tendens.navn)
           }

@@ -11,10 +11,10 @@ extension Tendens: Comparable, Equatable {
   static func == (lhs: Tendens, rhs: Tendens) -> Bool {
     lhs.id == rhs.id &&
     lhs.navn == rhs.navn &&
-    lhs.måleenhed == rhs.måleenhed &&
+    lhs.maaleenhed == rhs.maaleenhed &&
     lhs.inkluderTidspunkt == rhs.inkluderTidspunkt &&
     lhs.prioritet == rhs.prioritet &&
-    lhs.målinger == rhs.målinger
+    lhs.maalinger == rhs.maalinger
   }
   
   static func < (lhs: Tendens, rhs: Tendens) -> Bool {
@@ -22,15 +22,15 @@ extension Tendens: Comparable, Equatable {
   }
 }
 
-extension Måling: Comparable, Equatable {
-  static func == (lhs: Måling, rhs: Måling) -> Bool {
+extension Maaling: Comparable, Equatable {
+  static func == (lhs: Maaling, rhs: Maaling) -> Bool {
     lhs.id == rhs.id &&
     lhs.tid == rhs.tid &&
     lhs.note == rhs.note &&
-    lhs.værdi == rhs.værdi
+    lhs.vaerdi == rhs.vaerdi
   }
   
-  static func < (lhs: Måling, rhs: Måling) -> Bool {
+  static func < (lhs: Maaling, rhs: Maaling) -> Bool {
     return lhs.tid < rhs.tid
   }
 }

@@ -14,7 +14,7 @@ struct TendenserApp: App {
   
   init() {
     do {
-      self.modelContainer = try ModelContainer(for: Tendens.self, Måling.self, migrationPlan: nil)
+      self.modelContainer = try ModelContainer(for: Tendens.self, Maaling.self, migrationPlan: nil)
     }
     catch {
       fatalError("Kunne ikke initialisere model containeren!")

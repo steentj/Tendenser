@@ -12,7 +12,7 @@ enum ModelSchemaV1: VersionedSchema {
   static var versionIdentifier = Schema.Version(0, 1, 0)
   
   static var models: [any PersistentModel.Type] {
-    [Tendens.self, Måling.self]
+    [Tendens.self, Maaling.self]
   }
   
   @Model
@@ -21,40 +21,40 @@ enum ModelSchemaV1: VersionedSchema {
     @Attribute(.unique) let id = UUID()
     var prioritet: Int
     @Attribute(.unique) var navn: String
-    var måleenhed: String
+    var maaleenhed: String
     var inkluderTidspunkt: Bool
-    @Relationship(deleteRule: .cascade) var målinger: [Måling]
+    @Relationship(deleteRule: .cascade) var maalinger = [Maaling]()
     
     init() {
       prioritet = 0
       navn = ""
-      måleenhed = ""
-      målinger = []
+      maaleenhed = ""
+      maalinger = []
       inkluderTidspunkt = false
       return
     }
     
-    init(_ prio: Int = 0, _ nytNavn: String = "", _ nytMåleenhed: String = "", _ inkluderTid: Bool = false, _ nyeMålinger: [Måling] = []) {
+    init(_ prio: Int = 0, _ nytNavn: String = "", _ nyMaaleenhed: String = "", _ inkluderTid: Bool = false, _ nyeMaalinger: [Maaling] = []) {
       prioritet = prio
       navn = nytNavn
-      måleenhed = nytMåleenhed
-      målinger = nyeMålinger
+      maaleenhed = nyMaaleenhed
+      maalinger = nyeMaalinger
       inkluderTidspunkt = inkluderTid
       return
     }
   }
   
   @Model
-  class Måling: Identifiable {
+  class Maaling: Identifiable {
     @Attribute(.unique) let id = UUID()
 //    var tendens: Tendens
     var tid: Date
-    var værdi: Double
+    var vaerdi: Double
     var note: String
     
-    init(tid: Date = Date.now, værdi: Double = 0, note: String = "") {
+    init(tid: Date = Date.now, vaerdi: Double = 0, note: String = "") {
       self.tid = tid
-      self.værdi = værdi
+      self.vaerdi = vaerdi
       self.note = note
 //      self.tendens = tendens
     }
