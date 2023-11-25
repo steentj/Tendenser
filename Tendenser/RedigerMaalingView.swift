@@ -7,40 +7,51 @@
 
 import SwiftUI
 
-struct RedigerMaaling: View {
-  @Binding var item: Maaling
-  @State var visNote = false
-  var inkluderTid: Bool
+struct RedigerMaalingView: View {
+  @Bindable var tendens: Tendens
+  @Bindable var item: Maaling
+  var nyMaaling: Bool = false
+  
+  init(tendens: Tendens, item: Maaling, nyMaaling: Bool) {
+    self.tendens = tendens
+    self.item = item
+    if nyMaaling {
+      self.tendens.maalinger.append(item)
+    }
+  }
   
   var body: some View {
-    HStack {
-      DatePicker("", selection: $item.tid, displayedComponents: .date)
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-      
-      if inkluderTid {
-        DatePicker("", selection: $item.tid, displayedComponents: .hourAndMinute)
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-      }
-      
-      TextField("Målt vaerdi", value: $item.vaerdi, formatter: lavNumberFormatter())
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-        .frame(width: 100)
-        .textFieldStyle(.roundedBorder)
-      Button("Note") {
-        visNote = true
-      }
-      .sheet(isPresented: $visNote) {
+    Form {
+      VStack {
+        HStack {
+          let components: DatePickerComponents = tendens.inkluderTidspunkt
+          ? [.date]
+          : [.date, .hourAndMinute]
+          DatePicker("Dato:", selection: $item.tid, displayedComponents: components)
+               
+          Spacer()
+        }
+        
+        HStack {
+          Text("Måling: ")
+          TextField("Målt vaerdi", value: $item.vaerdi, formatter: lavNumberFormatter())
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .frame(width: 120)
+            .textFieldStyle(.roundedBorder)
+            Spacer()
+        }
+        
+        Text("Note:")
         TextEditor(text: $item.note)
-          .autocorrectionDisabled(true)
+          .padding(4)
+          .overlay(
+            RoundedRectangle(cornerRadius: 14)
+              .stroke(.black, lineWidth: 1)
+          )
+        }
       }
-      .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
-      .foregroundColor(.black)
-      .buttonStyle(.bordered)
-      .buttonBorderShape(.roundedRectangle)
     }
-    .font(.body)
   }
-}
 
 func lavNumberFormatter() -> NumberFormatter {
   let fmt = NumberFormatter()
@@ -50,9 +61,9 @@ func lavNumberFormatter() -> NumberFormatter {
 }
 
 
-struct RedigerMaaling_Previews: PreviewProvider {
-    static var previews: some View {
-      RedigerMaaling(item: Binding<Maaling>.constant(
-        Maaling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!, vaerdi: 42.3512345678, note: "")), inkluderTid: true)
-    }
-}
+//#Preview {
+//  Group {
+//    @State var maaling = Maaling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15, hour: 12, minute: 45))!, vaerdi: 42.3512345678, note: "")
+//    RedigerMaaling(item: $maaling, inkluderTid: false)
+//  }
+//}

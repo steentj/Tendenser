@@ -13,7 +13,7 @@ final class TendenserTests: XCTestCase {
   var målingIndices: Range<Int>!
   var maalinger: [Tendens]!
   var målingIndexPairs: [(Tendens, Int)]!
-  var sut: ContentView!
+  var sut: TendensListeView!
 
 //  override func setUpWithError() throws {
 //    tendenser = Tendenser(TendensListe: tendensTestdata)

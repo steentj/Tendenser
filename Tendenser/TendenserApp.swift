@@ -23,7 +23,7 @@ struct TendenserApp: App {
 
   var body: some Scene {
       WindowGroup {
-        ContentView()
+        TendensListeView()
       }
       .modelContainer(modelContainer)
   }

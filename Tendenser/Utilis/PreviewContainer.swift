@@ -11,10 +11,10 @@ import SwiftData
 @MainActor
 let previewContainer: ModelContainer = {
   do {
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try ModelContainer(
       for: Tendens.self,
-      configurations: ModelConfiguration(isStoredInMemoryOnly: true)
-    )
+      configurations: config)
     
     let modelContext = container.mainContext
     

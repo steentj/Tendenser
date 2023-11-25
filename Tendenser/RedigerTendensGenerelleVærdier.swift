@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct RedigerTendensGenerelleVærdier: View {
-  @Binding var tendens: Tendens
+  @Bindable var tendens: Tendens
   
   var body: some View {
-    VStack {
+    Form {
       HStack {
         LabeledContent {
           TextField("Krævet", text: $tendens.navn)
@@ -60,17 +60,4 @@ struct RedigerTendensGenerelleVærdier: View {
     }
     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20 ))
   }
-}
-
-struct RedigerTendensGenerelleVærdier_Previews: PreviewProvider {
-    static var previews: some View {
-      RedigerTendensGenerelleVærdier(tendens: Binding<Tendens>.constant(
-        Tendens(1,
-                "Blodsukker",
-                "mmol",
-                true,
-                [Maaling(tid: Calendar.current.date(from: DateComponents(year: 2022, month: 1, day: 15))!,   vaerdi: 42, note: ""),
-                 Maaling(tid: Calendar.current.date(from: DateComponents(year: 2021, month: 6, day: 15))!,   vaerdi: 45, note: ""),
-                 Maaling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 2, day: 2))!,   vaerdi: 51, note: "")])))
-    }
 }
