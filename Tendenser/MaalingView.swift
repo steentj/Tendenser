@@ -24,20 +24,6 @@ struct MaalingView: View {
         .fontWeight(.bold)
       if maaling.note.trimmingCharacters(in: .whitespaces).count > 0 {
         Text(Image(systemName: "note.text"))
-//        Button("*") {
-//          visNote = true
-//        }
-//        .sheet(isPresented: $visNote) {
-//          Text(maaling.note)
-//            .presentationDragIndicator(.visible)
-//            .presentationDetents([.fraction(0.25),.fraction(0.50),.fraction(0.75),.fraction(1)])
-//            .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 20))
-//          Spacer()
-//        }
-//        .presentationDragIndicator(.visible)
-//        .presentationDetents([.fraction(0.25),.fraction(0.50),.fraction(0.75),.fraction(1)])
-//        .foregroundColor(.primary)
-//        .buttonBorderShape(.roundedRectangle)
       } else {
         Text(" ")
           .frame(width: 20, height: nil, alignment: .trailing)

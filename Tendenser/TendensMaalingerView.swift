@@ -67,12 +67,6 @@ struct TendensMaalingerView: View {
         .buttonStyle(.borderless)
       }
     }
-//    .onAppear(perform: {
-//      if nyMaaling {
-//        var maaling = Maaling()
-//        tendens.maalinger.append(maaling)
-//      }
-//    })
   }
                       
   func sletMaalinger(_ maalingSlet: Maaling) {

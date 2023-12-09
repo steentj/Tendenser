@@ -35,11 +35,6 @@ struct TendensView: View {
             }
           }
           ToolbarItem(placement: .topBarTrailing) {
-//            NavigationLink(
-//              destination:
-//                RedigerMaalingView(tendens: tendens, item: Maaling(), nyMaaling: true),
-//              label:
-//                { Label("Tilføj måling", systemImage: "plus") })
             Button {
               nyMaaling.toggle()
             } label: {
