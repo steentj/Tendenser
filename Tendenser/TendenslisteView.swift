@@ -12,38 +12,85 @@ struct TendensListeView: View {
   @Query(sort: \Tendens.prioritet) private var tendenser: [Tendens]
   @State private var sti = [Tendens]()
   @State private var nyTendens = false
+  @State private var redigerTendens = false
+  @State private var arbejdsTendens: Tendens?
   
   @Environment(\.modelContext) private var modelContext
   
   var body: some View {
-    
-    ZStack {
-      Color(Color(rgb: 0x004643)).ignoresSafeArea()
-      
-      VStack {
-        TitelView(tilføjTendens: tilføjTendens, sti: sti)
-        
-        NavigationStack(path: $sti) {
-          List {
-            ForEach(tendenser) { tendens in
-              NavigationLink(value: tendens) {
-                Text(tendens.navn)
-              }
-              .background(Color(rgb: 0xabd1c6))
-              .foregroundColor(Color(rgb: 0x0f3433))
-              .listRowBackground(Color(rgb: 0xabd1c6))
-            .listRowSeparator(Visibility.automatic)
+      NavigationStack(path: $sti) {
+        List {
+          ForEach(tendenser) { tendens in
+            NavigationLink(value: tendens) {
+              Text(tendens.navn)
+              .badge(tendens.maalinger.count)
             }
-            .onDelete(perform: sletTendenser)
+            .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
+              Button {
+                redigerTendens = true
+              } label: {
+                Image(systemName: "pencil")
+              }
+            })
+            .sheet(isPresented: $redigerTendens, content: {
+                RedigerTendensGenerelleVærdier(tendens: tendens)
+                  .presentationDetents([.medium])
+            })
+            .background(Color("lysegrøn").opacity(0.50))
+            .foregroundColor(Color("mørkegrøn"))
+            .listRowBackground(Color("lysegrøn").opacity(0.75))
+            .listRowSeparator(Visibility.automatic)
+            .swipeActions(edge: .trailing, allowsFullSwipe: false, content: {
+              Button(role: .destructive) {
+                print("Tendens er \(tendens.navn) - Slet")
+                sletTendens(tendens)
+              } label: {
+                Image(systemName: "trash")
+              }
+              .foregroundColor(.white)
+            })
           }
-          .navigationDestination(for: Tendens.self, destination: { tendens in
-            TendensView(tendens: tendens, redigering: $nyTendens)
-          })
-          .scrollContentBackground(.hidden)
-          .background(Color(rgb: 0xabd1c6))
-          .listStyle(InsetListStyle())
         }
-      }
+        .navigationDestination(for: Tendens.self, destination: { tendens in
+          TendensView(tendens: tendens)
+        })
+        .scrollContentBackground(.hidden)
+        .listStyle(InsetListStyle())
+        .navigationBarTitleDisplayMode(.inline)
+        .background(Color("lysegrøn").opacity(0.75))
+        .toolbar {
+          ToolbarItem(placement: .principal) { 
+            HStack {
+              Image(systemName: "chart.line.uptrend.xyaxis")
+              Text("Tendenser")
+            }
+            .padding()
+            .font(.title)
+            .foregroundColor(.white)
+          }
+          ToolbarItem(placement: .topBarTrailing) {
+            Button {
+              nyTendens.toggle()
+            } label: {
+              Image(systemName: "plus")
+                .font(.title2)
+            }
+          }
+        }
+        .toolbarBackground(Visibility.visible, for: .tabBar)
+        .sheet(isPresented: $nyTendens, content: {
+          RedigerTendensGenerelleVærdier()
+            .presentationDetents([.medium])
+        })
+    }
+    .tint(.white)
+    .onAppear {
+      let appearance = UINavigationBarAppearance()
+      
+      appearance.backgroundColor = UIColor(Color("mørkegrøn"))
+      
+      UINavigationBar.appearance().standardAppearance = appearance
+      UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
   }
   
@@ -54,15 +101,18 @@ struct TendensListeView: View {
     }
   }
   
-  func tilføjTendens() {
-    let tendens = Tendens()
-    modelContext.insert(tendens)
-    nyTendens.toggle()
-    sti = [tendens]
+  func sletTendens(_ tendens: Tendens) {
+    modelContext.delete(tendens)
   }
+  
+  func navigationLink(tendens: Tendens?) -> some View {
+    return Text(tendens!.navn)
+    .badge(tendens!.maalinger.count)}
 }
 
+#if DEBUG
 #Preview {
-    TendensListeView()
-      .modelContainer(previewContainer)
+  TendensListeView()
+    .modelContainer(Tendens.preview)
 }
+#endif

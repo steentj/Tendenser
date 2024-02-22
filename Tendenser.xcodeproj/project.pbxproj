@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B25F7E1A2B7BD61500E344FC /* TendensPreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F7E192B7BD61500E344FC /* TendensPreviewExtension.swift */; };
+		B25F7E1C2B7E4F9A00E344FC /* MaalingerGraf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F7E1B2B7E4F9A00E344FC /* MaalingerGraf.swift */; };
 		B27D8C442ABD970B0048BEF1 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8C432ABD970B0048BEF1 /* PreviewContainer.swift */; };
 		B27F84F92A8A817D00632C1E /* TendensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F84F82A8A817D00632C1E /* TendensView.swift */; };
 		B27F84FB2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F84FA2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B25F7E192B7BD61500E344FC /* TendensPreviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendensPreviewExtension.swift; sourceTree = "<group>"; };
+		B25F7E1B2B7E4F9A00E344FC /* MaalingerGraf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaalingerGraf.swift; sourceTree = "<group>"; };
 		B27D8C432ABD970B0048BEF1 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		B27F84F82A8A817D00632C1E /* TendensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendensView.swift; sourceTree = "<group>"; };
 		B27F84FA2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RedigerTendensGenerelleVærdier.swift"; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 				B2C102D62A56C51C004E04DD /* TendensListeView.swift */,
 				B27F84F82A8A817D00632C1E /* TendensView.swift */,
 				B2FC09722A5C302F004DD590 /* TendensMaalingerView.swift */,
+				B25F7E1B2B7E4F9A00E344FC /* MaalingerGraf.swift */,
 				B27F84FA2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift */,
 				B282B3EA2A9775F500C8781B /* MaalingView.swift */,
 				B27F84FC2A94EEAD00632C1E /* RedigerMaalingView.swift */,
@@ -152,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				B2C102DB2A56C51D004E04DD /* Preview Assets.xcassets */,
+				B25F7E192B7BD61500E344FC /* TendensPreviewExtension.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -222,7 +228,7 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					B2A5DC522A6EAF82004BE1D8 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -286,6 +292,7 @@
 			files = (
 				B29D337B2AE145B500E427AD /* ModelExtensions.swift in Sources */,
 				B29D337D2AE1465F00E427AD /* SwiftData+TypeAlias.swift in Sources */,
+				B25F7E1A2B7BD61500E344FC /* TendensPreviewExtension.swift in Sources */,
 				B2FC09732A5C302F004DD590 /* TendensMaalingerView.swift in Sources */,
 				B2C102D72A56C51C004E04DD /* TendensListeView.swift in Sources */,
 				B2C102E92A587177004E04DD /* ColorExtension.swift in Sources */,
@@ -297,6 +304,7 @@
 				B29D33792AE1421B00E427AD /* ModelSchemaV1.swift in Sources */,
 				B2C102D52A56C51C004E04DD /* TendenserApp.swift in Sources */,
 				B27F84FD2A94EEAD00632C1E /* RedigerMaalingView.swift in Sources */,
+				B25F7E1C2B7E4F9A00E344FC /* MaalingerGraf.swift in Sources */,
 				B27F84FB2A8E7BD700632C1E /* RedigerTendensGenerelleVærdier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -415,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

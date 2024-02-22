@@ -13,9 +13,10 @@ struct TitelView: View {
   
   var body: some View {
     HStack(alignment: .top) {
+      
       Spacer()
-      Text(Image(systemName: "chart.line.uptrend.xyaxis")).font(.title2)
-      Text("Tendenser").font(.title2)
+      Label("Tendenser", systemImage: "chart.line.uptrend.xyaxis")
+        .font(.title2)
       Spacer()
       if sti.isEmpty {
         Button("+", action: {

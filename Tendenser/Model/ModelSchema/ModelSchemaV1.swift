@@ -23,7 +23,8 @@ enum ModelSchemaV1: VersionedSchema {
     @Attribute(.unique) var navn: String
     var maaleenhed: String
     var inkluderTidspunkt: Bool
-    @Relationship(deleteRule: .cascade) var maalinger = [Maaling]()
+    @Relationship(deleteRule: .cascade, inverse: \Maaling.tendens)
+    var maalinger: [Maaling] = []
     
     init() {
       prioritet = 0
@@ -47,16 +48,16 @@ enum ModelSchemaV1: VersionedSchema {
   @Model
   class Maaling: Identifiable {
     @Attribute(.unique) let id = UUID()
-//    var tendens: Tendens
     var tid: Date
-    var vaerdi: Double
+    var vaerdi: Decimal?
     var note: String
+    var tendens: Tendens?
     
-    init(tid: Date = Date.now, vaerdi: Double = 0, note: String = "") {
+    init(tid: Date = Date.now, vaerdi: Decimal? = nil, note: String = "") {
+      print(vaerdi ?? -99)
       self.tid = tid
       self.vaerdi = vaerdi
       self.note = note
-//      self.tendens = tendens
     }
   }
 }
