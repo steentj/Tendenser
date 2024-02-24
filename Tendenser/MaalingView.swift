@@ -14,7 +14,6 @@ struct MaalingView: View {
   var formatStyle: Date.FormatStyle
   
   @State private var visNote = false
-//  @State private var redigerMaaling = false
   
   var body: some View {
     HStack {
@@ -39,23 +38,6 @@ struct MaalingView: View {
       Spacer()
     }
     .foregroundColor(Color("mørkegrøn"))
-//    .swipeActions(edge: .leading, allowsFullSwipe: true) {
-//      Button() {
-//        redigerMaaling.toggle()
-//      } label: {
-//        Label("Slet", systemImage: "pencil")
-//      }
-//      .sheet(isPresented: $redigerMaaling, content: {
-//        RedigerMaalingView(tendens: tendens, maaling: maaling)
-//      })
-//    }
-//    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-//      Button(role: .destructive) {
-//        sletMaalinger(tendens, maaling)
-//      } label: {
-//        Label("Slet", systemImage: "trash")
-//      }
-//    }
   }
 }
 
@@ -79,14 +61,13 @@ func sletMaalinger(_ tendens: Tendens, _ maalingSlet: Maaling) {
      Maaling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 6, day: 2, hour: 11, minute: 20, second: 15))!,   vaerdi: 73, note: "")])
   
   @State var maaling = Maaling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 4, day: 24, hour: 12, minute: 20, second: 15))!, vaerdi: 77, note: "Hansen")
-  //    @State var maaling = Maaling(tid: Calendar.current.date(from: DateComponents(year: 2023, month: 4, day: 24, hour: 12, minute: 20, second: 15))!, note: "Hansen")
   
   let dateformat = Date.FormatStyle()
     .locale(Locale(identifier: "da_DK"))
     .year(.padded(4))
     .month(.twoDigits)
     .day(.twoDigits)
-  //      .hour(.twoDigits(amPM: .omitted))
-  //      .minute(.twoDigits)
+    .hour(.twoDigits(amPM: .omitted))
+    .minute(.twoDigits)
   return MaalingView(tendens: tendens, maaling: maaling, maaleenhed: "Stk", formatStyle: dateformat)
 }

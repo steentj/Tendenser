@@ -15,6 +15,7 @@ struct TendensMaalingerView: View {
   @State private var visChart = false
   @State private var redigerMaaling = false
   @State private var tempMaaling: Maaling = Maaling()
+  @State private var noteExpanded = false
   
   @Environment(\.modelContext) private var modelContext
   
@@ -25,26 +26,58 @@ struct TendensMaalingerView: View {
           List {
             ForEach(tendens.maalinger.sorted(by: { m1, m2 in
               m1.tid <= m2.tid })) { maaling in
-                MaalingView(tendens: tendens, maaling: maaling, maaleenhed: tendens.maaleenhed, formatStyle: findDatoFormat(inkluderTid: tendens.inkluderTidspunkt))
-                  .swipeActions(edge: .leading, allowsFullSwipe: true) {
-                    Button() {
-                      redigerMaaling.toggle()
-                    } label: {
-                      Label("Slet", systemImage: "pencil")
+                if maaling.note.isEmpty {
+                  MaalingView(tendens: tendens, maaling: maaling, maaleenhed: tendens.maaleenhed, formatStyle: findDatoFormat(inkluderTid: tendens.inkluderTidspunkt))
+                    .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                      Button() {
+                        redigerMaaling.toggle()
+                      } label: {
+                        Label("Slet", systemImage: "pencil")
+                      }
+                      .tint(Color("mørkegrøn").opacity(0.3))
+                      .foregroundColor(.white)
                     }
-                  }
-                  .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                    Button(role: .destructive) {
-                      sletMaalinger(tendens, maaling)
-                    } label: {
-                      Label("Slet", systemImage: "trash")
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                      Button(role: .destructive) {
+                        sletMaalinger(tendens, maaling)
+                      } label: {
+                        Label("Slet", systemImage: "trash")
+                      }
+                      .tint(.red)
+                      .foregroundColor(.white)
                     }
-                  }
-                  .sheet(isPresented: $redigerMaaling, content: {
-                    RedigerMaalingView(tendens: tendens, item: maaling)
-                      .presentationDetents([.medium])
-                  })
-              }
+                    .sheet(isPresented: $redigerMaaling, content: {
+                      RedigerMaalingView(tendens: tendens, item: maaling)
+                        .presentationDetents([.medium])
+                    })
+                } else {
+                  DisclosureGroup(
+                    content: {
+                      Text(maaling.note)
+                    },
+                    label: {
+                      MaalingView(tendens: tendens, maaling: maaling, maaleenhed: tendens.maaleenhed, formatStyle: findDatoFormat(inkluderTid: tendens.inkluderTidspunkt))
+                        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                          Button() {
+                            redigerMaaling.toggle()
+                          } label: {
+                            Label("Slet", systemImage: "pencil")
+                          }
+                        }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                          Button(role: .destructive) {
+                            sletMaalinger(tendens, maaling)
+                          } label: {
+                            Label("Slet", systemImage: "trash")
+                          }
+                        }
+                        .sheet(isPresented: $redigerMaaling, content: {
+                          RedigerMaalingView(tendens: tendens, item: maaling)
+                            .presentationDetents([.medium])
+                        })
+                    })
+                }
+                }
           }
         }
         .listStyle(.plain)

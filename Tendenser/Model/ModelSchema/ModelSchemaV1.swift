@@ -54,7 +54,6 @@ enum ModelSchemaV1: VersionedSchema {
     var tendens: Tendens?
     
     init(tid: Date = Date.now, vaerdi: Decimal? = nil, note: String = "") {
-      print(vaerdi ?? -99)
       self.tid = tid
       self.vaerdi = vaerdi
       self.note = note

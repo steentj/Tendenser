@@ -75,11 +75,9 @@ struct RedigerMaalingView: View {
         
         Button {
           if opretMaaling {
-            print("\(tendens.navn) \(dato) \(nyVaerdi).")
             let nyMaaling = Maaling(tid: dato, vaerdi: nyVaerdi, note: note)
             tendens.maalinger.append(nyMaaling)
           } else {
-            print("\(tendens.navn) \(dato) \(nyVaerdi).")
             item?.tid = dato
             item?.vaerdi = nyVaerdi
             item?.note = note

@@ -31,6 +31,7 @@ struct TendensListeView: View {
               } label: {
                 Image(systemName: "pencil")
               }
+              .tint(Color("mørkegrøn").opacity(0.3))
             })
             .sheet(isPresented: $redigerTendens, content: {
                 RedigerTendensGenerelleVærdier(tendens: tendens)
@@ -42,11 +43,11 @@ struct TendensListeView: View {
             .listRowSeparator(Visibility.automatic)
             .swipeActions(edge: .trailing, allowsFullSwipe: false, content: {
               Button(role: .destructive) {
-                print("Tendens er \(tendens.navn) - Slet")
                 sletTendens(tendens)
               } label: {
                 Image(systemName: "trash")
               }
+              .tint(.red)
               .foregroundColor(.white)
             })
           }
